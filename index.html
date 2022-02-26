@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Good-Cheap-Fast</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2>Ứng dụng good-cheap-fast</h2>
+<div class="container">
+    <input type="checkbox" id="good" class="toggle">
+    <label for="good" class="lable">
+        <div class="ball"></div>
+    </label>
+    <span>Good</span>
+</div>
+<div class="container">
+    <input type="checkbox" id="cheap" class="toggle">
+    <label for="cheap" class="lable">
+        <div class="ball"></div>
+    </label>
+    <span>Cheap</span>
+</div>
+<div class="container">
+    <input type="checkbox" id="fast" class="toggle">
+    <label for="fast" class="lable">
+        <div class="ball"></div>
+    </label>
+    <span>Fast</span>
+</div>
+
+<script>
+    const toggles = document.querySelectorAll('.toggle');
+    const good = document.querySelector('#good');
+    const cheap = document.querySelector('#cheap');
+    const fast = document.querySelector('#fast');
+
+    toggles.forEach(toggle => toggle.addEventListener('change', (e) => doTheTrich(e.target)))
+
+    function doTheTrich(theClickOne){
+        if(good.checked && cheap.checked && fast.checked){
+            if(good === theClickOne){
+                cheap.checked = false
+            }
+            if(cheap === theClickOne){
+                fast.checked = false
+            }
+            if (fast === theClickOne){
+                good.checked = false
+            }
+        }
+    }
+</script>
+</body>
+</html>
